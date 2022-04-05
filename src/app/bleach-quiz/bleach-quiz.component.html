@@ -1,0 +1,76 @@
+<form [hidden]="formHidden" #bleachForm ="ngForm" (submit)="GetForm(bleachForm.value)" >
+    <h1>bleach-quiz for all the fans!</h1>
+<div class="mb-3">
+    <h2 style="font-size: 20px;">what is ichigo hair color?</h2>
+    <input type="radio" class="form-check-input" aria-describedby="Solution"  ngModel #q1 name="q1" value="black">
+    <label for="black" class="form-check-label">Black</label><br>
+    
+    <input type="radio" class="form-check-input" aria-describedby="Solution"  ngModel #q1  name="q1" value="Orange">
+    
+    <label for="Orange" class="form-check-label">Orange</label><br>
+
+
+    <input type="radio" class="form-check-input" aria-describedby="Solution"  ngModel #q1  name="q1" value="Blue">
+    <label for="Blue" class="form-check-label">Blue</label><br>
+
+    
+    
+</div>
+<div class="mb-3">
+    <h2 style="font-size: 20px;">what is ichigo sword name??</h2>
+    <input type="radio" class="form-check-input" aria-describedby="Solution"  ngModel #q2 name="q2" value="zangetsu">
+    <label for ="zangetsu" class="form-check-label">Zangetsu</label><br>
+    <input type="radio" class="form-check-input" aria-describedby="Solution"  ngModel #q2 name="q2" value="zombimaru">
+    <label for ="zombimaru" class="form-check-label">Zombimaru</label><br>
+    <input type="radio" class="form-check-input" aria-describedby="Solution"  ngModel #q2 name="q2" value="hyurinmuri">
+    <label for ="hyurinmuri" class="form-check-label">Hyurinmuri</label><br>
+</div>
+
+<div class="mb-3">
+    <h2 style="font-size: 20px;">what is the meaning of shinigami?</h2>
+    <input type="radio" class="form-check-input" aria-describedby="Solution"  ngModel #q3 name="q3" value="soul-reaper">
+    <label for ="soul-reaper" class="form-check-label">Soul-Reaper</label><br>
+    <input type="radio" class="form-check-input" aria-describedby="Solution"  ngModel #q3 name="q3" value="quincy">
+    <label for ="quincy" class="form-check-label">Qunicy</label><br>
+    <input type="radio" class="form-check-input" aria-describedby="Solution"  ngModel #q3 name="q3" value="chicken-nugget">
+    <label for ="chicken-nugget" class="form-check-label">chicken-nugget</label><br>
+</div>
+
+<button>submit</button>
+
+</form>
+
+
+  <div [hidden]="QuizResult">
+        <div *ngIf="count <=2"> 
+            <h1>End of Quiz!</h1>
+         <h2 class="p-3 mb-2 bg-danger text-red" >you are no fan NOOB =(</h2>
+        </div>
+
+        <div *ngIf="count == 3"> 
+           <h2 class="p-3 mb-2 bg-warning text-gold">  you are a fan indeed!</h2>
+         </div>
+
+
+            <div> 
+            <h2 *ngIf="obj.q1 == 'Orange' " class="" >Q1.correct ichigo hair is Orange</h2>
+            <h2 *ngIf="obj.q1 !='Orange' " class="">Q1.wrong ichigo hair is Orange</h2>
+            </div>
+
+            <div> 
+                <h2 *ngIf="obj.q2 == 'zangetsu' "class="" >Q2.correct ichigo sword name is Zangetsu</h2>
+                <h2 *ngIf="obj.q2 != 'zangetsu' ">Q2.wrong ichigo sword name is Zangetsu</h2>
+            </div>
+        
+            <div> 
+            <h2 *ngIf="obj.q3 == 'soul-reaper' "class="" >Q3.correct shinigami is Soul reaper</h2>
+            <h2 *ngIf="obj.q3 != 'soul-reaper' && q3.value !='chicken-nugget' "class="">Q3.wrong shinigami means Soul Reaper</h2>
+            <h2 *ngIf="obj.q3 == 'chicken-nugget' "class="">PS: definitely NOT a Chicken nugget -1 on THAT</h2>
+            </div>
+
+            <button (click)="handlesave()">save your result</button>
+  </div> 
+
+
+    
+
